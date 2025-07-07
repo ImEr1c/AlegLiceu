@@ -7,6 +7,7 @@ import com.imer1c.alegliceu.util.BrowseFilter;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -36,9 +37,13 @@ public class BrowseFilterDialog implements ArgInitializer {
         this.box1.prefWidthProperty().bind(profil.widthProperty());
         this.box2.prefWidthProperty().bind(profil.widthProperty());
 
-        this.profil.setItems(FXCollections.observableArrayList(dataManager.getSpecializari()));
+        ObservableList<String> list = FXCollections.observableArrayList(dataManager.getSpecializari());
+        list.addFirst("Profil");
+
+        this.profil.setItems(list);
         this.profil.setOnAction(e -> {
-            filter.setProfil(profil.getSelectionModel().getSelectedItem());
+            String selectedItem = profil.getSelectionModel().getSelectedItem();
+            filter.setProfil((selectedItem == null || selectedItem.equals("Profil")) ? null : selectedItem);
         });
 
         if (filter.getProfil() != null)

@@ -17,8 +17,8 @@
 
     <VBox alignment="CENTER" spacing="15" focusTraversable="false">
         <Label fx:id="title" style="-fx-font-size: 40" />
-        <ReadOnlyTextField fx:id="telefon" maxWidth="850" />
-        <ReadOnlyTextField fx:id="adresa" maxWidth="850" />
+        <ReadOnlyTextField fx:id="telefon" maxWidth="700" />
+        <ReadOnlyTextField fx:id="adresa" maxWidth="700" />
         <Group>
             <TableView fx:id="profileTable" />
         </Group>
@@ -28,8 +28,8 @@
                 <Insets top="15" />
             </VBox.margin>
         </Label>
-        <DoubleField fx:id="distanta" promptText="Distanța (KM / minute / orice, cât timp este la fel setat la toate)" maxWidth="850" />
-        <TextField fx:id="transportDetails" promptText="Detalii transport" maxWidth="850" />
+        <DoubleField fx:id="distanta" promptText="Distanța (KM / minute / orice, cât timp este la fel setat la toate)" maxWidth="700" />
+        <TextField fx:id="transportDetails" promptText="Detalii transport" maxWidth="700" />
     </VBox>
 
 </ScrollPane>

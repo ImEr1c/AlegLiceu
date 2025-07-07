@@ -110,12 +110,6 @@ public class Profil {
 
         boolean b;
 
-        if (liceuName.contains("Miguel"))
-        {
-            System.out.println(end);
-            System.out.println(profil);
-        }
-
         if (end.contains("/"))
         {
             String[] langs = end.split("/");

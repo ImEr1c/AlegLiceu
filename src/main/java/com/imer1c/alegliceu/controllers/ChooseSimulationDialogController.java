@@ -41,7 +41,10 @@ public class ChooseSimulationDialogController implements ArgInitializer {
             {
                 appInstance.openDialog(MainController.FXMLData.of("loading"), 532, 400);
                 userListManager.runComparationSimulation(dataManager, index, () -> {
-                    Platform.runLater(appInstance::closeDialog);
+                    Platform.runLater(() -> {
+                        appInstance.closeDialog();
+                        controller.afterSimulation(ShowSimulationData.COMPARATION);
+                    });
                 });
             }
         });

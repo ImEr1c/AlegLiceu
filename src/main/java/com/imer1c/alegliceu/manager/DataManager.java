@@ -114,17 +114,6 @@ public class DataManager {
                         }
                     }
 
-                    if (liceu.toLowerCase(Locale.ROOT).contains("miguel") && profil.toLowerCase().contains("filologie"))
-                    {
-                        System.out.println("FOUND: {");
-                        System.out.println(profil.toLowerCase(Locale.ROOT).contains("spaniol"));
-                        System.out.println("REAL " + profil);
-                        System.out.println(licee.get(liceuId).getName());
-                        System.out.println(liceuId);
-                        System.out.println(profilLiteral);
-                        System.out.println("}\n");
-                    }
-
                     if (profilLiteral == null)
                     {
                         continue;
@@ -417,7 +406,7 @@ public class DataManager {
 
             try
             {
-                int year = LocalDateTime.now().getYear() - 1;
+                int year = LocalDateTime.now().getYear();
 
                 URL url = new URL(String.format(evaluareCandidatesLink, year));
                 URL url2 = new URL(String.format(candidatesLink, year));

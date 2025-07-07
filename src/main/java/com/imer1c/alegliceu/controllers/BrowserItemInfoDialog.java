@@ -70,8 +70,8 @@ public class BrowserItemInfoDialog implements ArgInitializer, DialogCloseable {
         profileTable.getColumns().addAll(profilColumn, locuriColumn, medieColumn, codColumn, indexColumn);
         profileTable.setItems(FXCollections.observableArrayList(liceu.getProfile().values()));
         profileTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
-        profileTable.setPrefWidth(650);
-        profileTable.setMaxHeight(42 + 45 * liceu.getProfile().size());
+        profileTable.setPrefWidth(700);
+        profileTable.setPrefHeight(42 + 45 * liceu.getProfile().size());
         profileTable.setFixedCellSize(45);
         profileTable.setFocusTraversable(false);
         profileTable.setFocusModel(null);

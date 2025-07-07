@@ -1,5 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-
 plugins {
     java
     application
@@ -11,12 +9,16 @@ plugins {
 }
 
 val appName: String by project
-val javafx_modules: String by project
+val javafxModules: String by project
 val version: String by project
 val group: String by project
 val appMainClass: String by project
+val deleteBeforeTest: String by project
 
-val osName = System.getProperty("os.name")
+val editBinExePath: String by project
+val innoSetupExePath: String by project
+
+val osName = System.getProperty("os.name").lowercase()
 val platform: String = when {
     osName.contains("windows") -> "windows"
     osName.contains("mac") -> "mac"
@@ -44,7 +46,7 @@ application {
 
 javafx {
     version = "21"
-    modules = javafx_modules.split(",")
+    modules = javafxModules.split(",")
 }
 
 dependencies {
@@ -110,10 +112,13 @@ graalvmNative {
             resources.autodetect()
         }
     }
+    metadataRepository {
+        enabled.set(true)
+    }
 }
 
 val agentLib = tasks.register<Exec>("runAgentLibScript") {
-    dependsOn(tasks.shadowJar)
+    dependsOn("shadowJar")
 
     val jarFile = tasks.shadowJar.get().archiveFile.get().asFile
 
@@ -123,18 +128,22 @@ val agentLib = tasks.register<Exec>("runAgentLibScript") {
         "--module-path",
         configurations.runtimeClasspath.get().asPath,
         "--add-modules",
-        javafx_modules,
+        javafxModules,
         "-jar",
         jarFile.absolutePath
     )
 
     doFirst {
         delete(file("graal-config/${platform}"))
+
+        deleteBeforeTest.split(",").forEach {
+            delete(it)
+        }
     }
 }
 
 tasks.register<Copy>("agentlib") {
-    dependsOn(agentLib)
+    dependsOn("runAgentLibScript")
 
     group = "verification"
 
@@ -166,9 +175,9 @@ tasks.register<Copy>("copyGraalConfig") {
 }
 
 tasks.register("packageForMac") {
-    group = "installers"
+    group = "installer"
 
-    dependsOn(tasks.jpackage)
+    dependsOn("jpackage")
     onlyIf { platform.equals("mac") }
 
     doLast {
@@ -176,4 +185,60 @@ tasks.register("packageForMac") {
 
         println("Installer available at ${dest.toURI()}")
     }
+}
+
+tasks.register<Exec>("fixConsoleStartingOnWindows") {
+    mustRunAfter("nativeCompile")
+
+    commandLine = listOf(
+        editBinExePath,
+        "/SUBSYSTEM:WINDOWS",
+        file("build/native/nativeCompile/${project.name}.exe").absolutePath,
+    )
+}
+
+tasks.register<Exec>("applyIcon") {
+    mustRunAfter("nativeCompile")
+
+    commandLine = listOf(
+        "rcedit",
+        file("build/native/nativeCompile/${project.name}.exe").absolutePath,
+        "--set-icon",
+        "icon.ico"
+    )
+}
+
+tasks.register<Copy>("buildAppForWindows") {
+
+    val dependencies = mutableListOf("fixConsoleStartingOnWindows", "nativeCompile")
+    if (file("icon.ico").exists())
+    {
+        dependencies.add(0, "applyIcon")
+    }
+
+    dependsOn(dependencies)
+
+    val output = "build/native/exe"
+
+    from(file("build/native/nativeCompile"))
+    into(output)
+
+    include("**/*.exe")
+
+    doFirst {
+        delete(output)
+    }
+}
+
+tasks.register<Exec>("packageForWindows") {
+    dependsOn("buildAppForWindows")
+
+    group = "installer"
+
+    val script = "script.iss"
+
+    commandLine = listOf(
+        innoSetupExePath,
+        script
+    )
 }

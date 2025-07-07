@@ -8,6 +8,7 @@ import com.imer1c.alegliceu.util.Util;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -36,6 +37,8 @@ public class AlegLiceu extends Application {
         boolean loadedData = dataManager.load();
 
         this.stage = stage;
+
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("icon.png")));
 
         Runtime.getRuntime().addShutdownHook(new Thread(userListManager::save));
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> {

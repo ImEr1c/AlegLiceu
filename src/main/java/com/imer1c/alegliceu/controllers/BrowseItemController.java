@@ -69,7 +69,7 @@ public class BrowseItemController implements ArgInitializer {
             appInstance.openDialog(MainController.FXMLData.of("add_liceu_dialog", liceu, appInstance), 800, 80 * profile.size());
         });
         infoButton.setOnMouseClicked(e -> {
-            appInstance.openDialog(MainController.FXMLData.of("browser_item_info_dialog", liceu, appInstance), 1024, 600);
+            appInstance.openDialog(MainController.FXMLData.of("browser_item_info_dialog", liceu, appInstance), 800, 600);
         });
     }
 }

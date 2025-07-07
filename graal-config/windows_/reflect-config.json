@@ -28,12 +28,6 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"com.imer1c.alegliceu.controllers.BrowseFilterDialog",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
   "name":"com.imer1c.alegliceu.controllers.BrowseItemController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
@@ -69,6 +63,12 @@
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
+  {
+    "name":"com.imer1c.alegliceu.controllers.BrowseFilterDialog",
+    "allDeclaredFields":true,
+    "queryAllDeclaredMethods":true,
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
 {
   "name":"com.imer1c.alegliceu.controllers.HomeViewConfirmDeleteDialogController",
   "allDeclaredFields":true,

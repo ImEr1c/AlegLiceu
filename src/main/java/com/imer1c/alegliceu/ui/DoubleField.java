@@ -32,6 +32,12 @@ public class DoubleField extends TextField {
                 }
 
                 double v = object.doubleValue();
+
+                if (v <= 0)
+                {
+                    return "";
+                }
+
                 return (v == (int) v) ? String.valueOf((int) v) : object.toString();
             }
 
@@ -56,7 +62,7 @@ public class DoubleField extends TextField {
     {
         String text = getText();
 
-        return text.isEmpty() ? -1 : Double.parseDouble(text);
+        return (text == null || text.isEmpty()) ? -1 : Double.parseDouble(text);
     }
 
     public void setValue(double value)

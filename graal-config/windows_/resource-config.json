@@ -43,8 +43,6 @@
   }, {
     "pattern":"\\Qfxml/add_liceu_dialog_item.fxml\\E"
   }, {
-    "pattern":"\\Qfxml/browse_filter_dialog.fxml\\E"
-  }, {
     "pattern":"\\Qfxml/browse_item.fxml\\E"
   }, {
     "pattern":"\\Qfxml/browse_view.fxml\\E"
@@ -94,6 +92,8 @@
     "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/uprops.icu\\E"
   }, {
     "pattern":"java.base:\\Qsun/net/idn/uidna.spp\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/text/resources/WordBreakIteratorData\\E"
   }, {
     "pattern":"javafx.base:\\Qcom/sun/javafx/reflect/Trampoline.class\\E"
   }, {
