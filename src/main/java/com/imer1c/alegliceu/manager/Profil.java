@@ -1,11 +1,5 @@
 package com.imer1c.alegliceu.manager;
 
-import javafx.scene.paint.Material;
-
-import java.awt.*;
-import java.util.Arrays;
-import java.util.function.BiFunction;
-
 public class Profil {
 
     private final String liceuName;

@@ -8,7 +8,6 @@ import com.imer1c.alegliceu.manager.UserListManager;
 import com.imer1c.alegliceu.ui.DoubleField;
 import com.imer1c.alegliceu.ui.ReadOnlyTextField;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.value.ObservableStringValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Label;
