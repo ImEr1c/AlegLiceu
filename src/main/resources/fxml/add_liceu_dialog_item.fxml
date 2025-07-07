@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:id="root" alignment="CENTER_LEFT" prefHeight="80" minHeight="80" maxHeight="80"
+      fx:controller="com.imer1c.alegliceu.controllers.AddLiceuDialogItemController" styleClass="add_liceu_dialog_item">
+
+    <Label fx:id="profilLabel" HBox.hgrow="ALWAYS" style="-fx-font-size: 30" />
+    <Button fx:id="add" text="Adaugă" style="-fx-font-size: 25" styleClass="add_liceu_dialog_item_button" />
+
+</HBox>

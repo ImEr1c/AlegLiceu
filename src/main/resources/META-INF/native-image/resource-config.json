@@ -1,0 +1,95 @@
+{
+  "resources":{
+  "includes":[{
+    "pattern":"\\QMETA-INF/fonts.mf\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/java.lang.System$LoggerFinder\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/java.net.spi.URLStreamHandlerProvider\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/java.time.zone.ZoneRulesProvider\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.xml.stream.XMLInputFactory\\E"
+  }, {
+    "pattern":"\\Qcheckmark.png\\E"
+  }, {
+    "pattern":"\\Qcheckmark_hovered.png\\E"
+  }, {
+    "pattern":"\\Qcheckmark_selected.png\\E"
+  }, {
+    "pattern":"\\Qcss/main.bss\\E"
+  }, {
+    "pattern":"\\Qcss/main.css\\E"
+  }, {
+    "pattern":"\\Qfxml/add_liceu_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/add_liceu_dialog_item.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/browse_filter_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/browse_item.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/browse_view.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/browser_item_info_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/home_view.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/home_view_print_select_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/home_view_sort_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/home_view_sort_dialog_item.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/main.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/run_simulation_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/type_men_code_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qtrash.png\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/nfc.nrm\\E"
+  }, {
+    "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/ubidi.icu\\E"
+  }, {
+    "pattern":"javafx.base:\\Qcom/sun/javafx/reflect/Trampoline.class\\E"
+  }, {
+    "pattern":"javafx.controls:\\Qcom/sun/javafx/scene/control/skin/modena/modena.bss\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/glass/utils/NativeLibLoader.class\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/DrawPgram_Color.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/FillPgram_Color.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/FillPgram_LinearGradient_PAD.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/FillRoundRect_Color.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/Solid_Color.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/Solid_TextureRGB.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/Texture_Color.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/es2/glsl/Texture_LinearGradient_PAD.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/scenario/effect/impl/es2/glsl/LinearConvolveShadow_12.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/scenario/effect/impl/es2/glsl/LinearConvolveShadow_64.frag\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qlibglass.dylib\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qlibjavafx_font.dylib\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qlibprism_es2.dylib\\E"
+  }]},
+  "bundles":[{
+    "name":"com.sun.javafx.tk.quantum.QuantumMessagesBundle",
+    "locales":[""]
+  }, {
+    "name":"com/sun/javafx/scene/control/skin/resources/controls",
+    "locales":[""]
+  }]
+}

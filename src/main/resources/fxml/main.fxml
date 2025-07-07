@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" stylesheets="/css/main.css"
+            fx:controller="com.imer1c.alegliceu.controllers.MainController">
+
+    <StackPane fx:id="mainView" />
+
+    <Region fx:id="blackOverlay" style="-fx-background-color: rgba(0, 0, 0, 0.5)" visible="false" mouseTransparent="true"/>
+
+    <StackPane fx:id="popupContainer" visible="false" mouseTransparent="true"/>
+
+</StackPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx" styleClass="dialog" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml" spacing="15" style="-fx-padding: 10"
+      fx:controller="com.imer1c.alegliceu.controllers.HomeViewPrintSelectDialogController">
+
+    <Label text="Imprimare" style="-fx-font-size: 40" />
+    <Label text="Bifează mai jos ce ai dori să apară în listă, în ordinea apariției" styleClass="textMedium" />
+    <CheckBox fx:id="liceuName" text="Nume liceu" prefWidth="200" alignment="CENTER" />
+    <CheckBox fx:id="specializare" text="Nume Profil" prefWidth="200" alignment="CENTER" />
+    <CheckBox fx:id="locuri" text="Nr. Locuri" prefWidth="200" alignment="CENTER" />
+    <CheckBox fx:id="medie" text="Medie" prefWidth="200" alignment="CENTER" />
+    <CheckBox fx:id="cod" text="Cod" selected="true" prefWidth="200" alignment="CENTER" />
+    <HBox alignment="CENTER" spacing="25">
+        <CheckBox fx:id="distance" text="Distanța până la liceu" prefWidth="200" alignment="CENTER" />
+        <TextField fx:id="unitOfMeasure" promptText="Unitate de masură" managed="false" prefWidth="165" />
+    </HBox>
+
+    <Label fx:id="preview" text="poziție. cod" style="-fx-font-size: 25">
+        <VBox.margin>
+            <Insets top="15" bottom="15" />
+        </VBox.margin>
+    </Label>
+
+    <VBox style="-fx-padding: 0 10 0 10" alignment="CENTER" spacing="15">
+        <Label text="Scrie mai jos titlul dorit pentru listă și dacă dorești să apară avertismentul cu privire la verificarea codurilor" wrapText="true" styleClass="textMedium" />
+
+        <TextField fx:id="title" text="Lista Licee" />
+        <CheckBox fx:id="warning" text="imprimează avertismentul" selected="true" />
+    </VBox>
+
+    <Button fx:id="continueButton" text="Continuă" />
+</VBox>

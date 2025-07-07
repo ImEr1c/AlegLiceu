@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" alignment="CENTER" spacing="30"
+            xmlns:fx="http://javafx.com/fxml" styleClass="dialog" style="-fx-padding: 20"
+            fx:controller="com.imer1c.alegliceu.controllers.TypeMenCodeDialog">
+
+    <Label text="Note și repartizare" style="-fx-font-size: 30" textAlignment="CENTER" />
+    <Label text="Introdu mai jos codul primit de la dirigintă / diriginte pentru a putea vizualiza notele de la examen." styleClass="textMedium" wrapText="true" style="-fx-padding: 20" />
+    <TextField fx:id="field" maxWidth="300" promptText="Cod" />
+    <Button fx:id="confirm" text="Confirmă" />
+
+</VBox>

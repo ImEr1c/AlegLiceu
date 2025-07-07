@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns="http://javafx.com/javafx" spacing="25" style="-fx-padding: 10"
+      xmlns:fx="http://javafx.com/fxml" styleClass="dialog"
+      fx:controller="com.imer1c.alegliceu.controllers.PrintSendToPhoneDialogController">
+
+    <Label text="Scanează codul de mai jos cu camera telefonului pentru a descărca documentul" styleClass="textMedium" />
+    <Label text="Atenție! Codul merge doar dacă telefonul și computerul se află pe aceeași rețea wireless" wrapText="true" style="-fx-text-fill: blue" styleClass="textMedium" />
+    <Label text="! ATENȚIE: Codurile nu au fost verificate și este posibil să nu fie 100% corecte. Verificați folosind broșura de licee primită de la scoala pentru a fi siguri." wrapText="true" style="-fx-text-fill: red" styleClass="textMedium" />
+
+    <HBox alignment="CENTER">
+        <StackPane maxWidth="300" maxHeight="300">
+            <ImageView fx:id="code" fitWidth="300" fitHeight="300" />
+            <ProgressIndicator fx:id="indicator" prefWidth="200" prefHeight="200" visible="false" />
+        </StackPane>
+    </HBox>
+
+</VBox>

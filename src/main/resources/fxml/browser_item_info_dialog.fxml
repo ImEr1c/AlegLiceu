@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import com.imer1c.alegliceu.ui.ReadOnlyTextField?>
+<?import com.imer1c.alegliceu.ui.Table?>
+<?import com.imer1c.alegliceu.ui.DoubleField?>
+<?import javafx.geometry.Insets?>
+<ScrollPane xmlns="http://javafx.com/javafx" styleClass="dialog"
+            xmlns:fx="http://javafx.com/fxml" fitToWidth="true" style="-fx-padding: 20"
+            fx:controller="com.imer1c.alegliceu.controllers.BrowserItemInfoDialog">
+
+    <VBox alignment="CENTER" spacing="15" focusTraversable="false">
+        <Label fx:id="title" style="-fx-font-size: 40" />
+        <ReadOnlyTextField fx:id="telefon" maxWidth="850" />
+        <ReadOnlyTextField fx:id="adresa" maxWidth="850" />
+        <Group>
+            <TableView fx:id="profileTable" />
+        </Group>
+
+        <Label text="Detalii" style="-fx-font-size: 25">
+            <VBox.margin>
+                <Insets top="15" />
+            </VBox.margin>
+        </Label>
+        <DoubleField fx:id="distanta" promptText="Distanța (KM / minute / orice, cât timp este la fel setat la toate)" maxWidth="850" />
+        <TextField fx:id="transportDetails" promptText="Detalii transport" maxWidth="850" />
+    </VBox>
+
+</ScrollPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.imer1c.alegliceu.ui.GridListView?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx" fx:id="root"
+      xmlns:fx="http://javafx.com/fxml" styleClass="rootBg"
+      fx:controller="com.imer1c.alegliceu.controllers.BrowseViewController">
+
+
+    <VBox alignment="CENTER" spacing="10" maxWidth="Infinity" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+    <HBox alignment="CENTER" spacing="20" fx:id="topBox">
+        <TextField fx:id="search" promptText="Caută" style="-fx-font-size: 20" prefWidth="300" />
+        <Button fx:id="filterButton" text="Filtrează" />
+        <ComboBox fx:id="sort" promptText="Sortează" styleClass="textMedium" />
+    </HBox>
+    <GridListView fx:id="list" VBox.vgrow="ALWAYS" styleClass="liceu_list" itemWidth="400" />
+    </VBox>
+    <Button fx:id="home" text="Acasă" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5" />
+</AnchorPane>

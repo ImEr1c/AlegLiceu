@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" prefWidth="350" prefHeight="225" spacing="20" fx:id="root"
+      xmlns:fx="http://javafx.com/fxml" alignment="CENTER" styleClass="browseItem"
+            fx:controller="com.imer1c.alegliceu.controllers.BrowseItemController">
+
+    <Label fx:id="name" styleClass="browseItemName" />
+    <HBox alignment="CENTER" spacing="10" fx:id="medieGroup">
+        <ComboBox fx:id="medieSelector" HBox.hgrow="ALWAYS" styleClass="textMedium" />
+        <Label fx:id="medie" HBox.hgrow="ALWAYS" styleClass="textMedium" />
+    </HBox>
+    <HBox alignment="CENTER" fx:id="buttonsGroup" spacing="15">
+        <Button text="Adaugă" fx:id="addButton" />
+        <Button text="Informații" fx:id="infoButton" />
+    </HBox>
+
+</VBox>

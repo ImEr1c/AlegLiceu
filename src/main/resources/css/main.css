@@ -1,0 +1,256 @@
+.button {
+    -fx-border-width: 0;
+    -fx-background-color: #1448cc;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+.button:hover {
+    -fx-background-color: #1a53e8;
+}
+
+.button:pressed {
+    -fx-background-color: #225df3;
+}
+
+.liceu_list {
+    -fx-background-color: #bfbfbf;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 5, 1, 0, 0);
+}
+
+.rootBg {
+    -fx-background-color: #f2f2f2;
+}
+
+.viewport {
+    -fx-background-color: transparent;
+}
+
+.combo-box {
+    -fx-background-color: rgb(220, 221, 222);
+    -fx-background-radius: 5;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: rgb(214, 217, 223);
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: rgb(214, 217, 223);
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgb(219, 221, 225);
+    -fx-border-radius: 20;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+}
+
+.searchField {
+    -fx-background-color: red;
+}
+
+.browseItemName {
+    -fx-font-size: 25;
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.browseItem {
+    -fx-background-color: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 10;
+}
+
+.textMedium {
+    -fx-font-size: 20;
+    -fx-text-fill: black;
+}
+
+.text-input {
+    -fx-highlight-fill: #1a57e1;
+}
+
+.text-field {
+    -fx-background-color: rgb(240, 241, 242);
+    -fx-font-family: "Roboto Light";
+    -fx-padding: 5;
+    -fx-font-size: 20;
+    -fx-border-width: 0;
+    -fx-background-radius: 5;
+    -fx-prompt-text-fill: rgb(100, 101, 103);
+}
+
+.add_liceu_dialog_item {
+    -fx-border-color: gray;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5;
+}
+
+.homeLiceuItem {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+}
+
+.add_liceu_dialog_item_button:red {
+    -fx-background-color: red;
+}
+
+.check-box {
+    -fx-font-size: 20;
+}
+
+.check-box .box {
+    -fx-background-color: transparent;
+    -fx-background-size: cover;
+    -fx-background-image: url('/checkmark.png');
+    -fx-shape: null;
+}
+
+.check-box:hover .box {
+    -fx-background-image: url('/checkmark_hovered.png');
+    -fx-shape: null;
+}
+
+.check-box:selected .box {
+    -fx-background-image: url('/checkmark_selected.png');
+    -fx-shape: null;
+}
+
+.check-box .mark {
+    -fx-shape: null;
+    -fx-background-color: transparent;
+}
+
+.image-button {
+    -fx-background-size: 50% 50%;
+    -fx-background-position: 50% 50%;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 50;
+    -fx-pref-height: 50;
+}
+
+.delete-button {
+    -fx-background-image: url('/trash.png');
+}
+
+.red:hover {
+    -fx-background-color: #f20000;
+}
+
+.red:pressed {
+    -fx-background-color: #cc0000;
+}
+
+.red {
+    -fx-background-color: red;
+}
+
+.delete-button:close {
+    -fx-background-image: url('/x.png');
+}
+
+.move-button {
+    -fx-background-image: url('/copy.png');
+}
+
+.copy-bar {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 10, 0, 0);
+    -fx-background-color: rgb(104, 105, 108);
+    -fx-background-radius: 20;
+    -fx-border-width: 0;
+}
+
+.dialog {
+    -fx-background-radius: 20;
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+
+.dialog:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.read-only-text-field {
+    -fx-border-style: dashed;
+    -fx-border-width: 2;
+    -fx-border-color: rgb(202, 203, 204);
+    -fx-font-size: 17;
+}
+
+.table-view {
+    -fx-background-color: rgb(230, 231, 232);
+    -fx-border-width: 0;
+    -fx-focus-traversable: false;
+}
+
+.table-view:focused {
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-focus-traversable: false;
+}
+
+.table-view .column-header {
+    -fx-background-color: rgb(230, 231, 232);
+    -fx-font-size: 20;
+    -fx-font-weight: normal;
+    -fx-background-insets: 0;
+    -fx-focus-traversable: false;
+}
+
+.table-row-cell {
+    -fx-font-size: 20;
+}
+
+.table-label {
+    -fx-font-size: 25;
+    -fx-border-width: 0 1 1 0;
+    -fx-border-color: rgb(210, 210, 210);
+}
+
+.table-header {
+    -fx-background-color: rgba(200, 200, 200);
+}
+
+.table {
+    -fx-background-color: rgb(230, 231, 232);
+    -fx-padding: 10;
+    -fx-background-radius: 20;
+}
+
+.scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+
+.qr-done {
+    -fx-background-image: url('/checkmark_green.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}

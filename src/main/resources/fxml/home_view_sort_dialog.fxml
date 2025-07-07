@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.imer1c.alegliceu.ui.DoubleField?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx" fx:controller="com.imer1c.alegliceu.controllers.HomeViewSortDialogController" style="-fx-padding: 20" spacing="15" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml" styleClass="dialog">
+
+    <Label text="Ordonează" style="-fx-font-size: 40" />
+
+    <DoubleField fx:id="from" promptText="De la" />
+    <DoubleField fx:id="to" promptText="Până la" />
+    <CheckBox fx:id="all" text="Toate" />
+
+    <Button fx:id="add" text="Adaugă">
+        <VBox.margin>
+            <Insets top="25" />
+        </VBox.margin>
+    </Button>
+    <VBox fx:id="list" />
+    <Button fx:id="confirm" text="Confirmă" />
+
+</VBox>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" style="-fx-padding: 5"
+            fx:controller="com.imer1c.alegliceu.controllers.HomeViewSortDialogItemController">
+
+    <Label text="Prioritate" styleClass="textMedium" />
+    <ComboBox fx:id="priority" styleClass="textMedium" />
+    <Label text="Opțiune" styleClass="textMedium" />
+    <ComboBox fx:id="options" styleClass="textMedium" maxWidth="400" />
+    <Button fx:id="delete" prefWidth="40" prefHeight="40" styleClass="image-button, red, delete-button" />
+
+</HBox>

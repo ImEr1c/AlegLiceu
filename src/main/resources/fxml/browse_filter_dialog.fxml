@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.imer1c.alegliceu.ui.DoubleField?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx" styleClass="dialog"
+      xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="10"
+      fx:controller="com.imer1c.alegliceu.controllers.BrowseFilterDialog">
+
+    <Label text="Filtrează" style="-fx-font-size: 40">
+        <VBox.margin>
+            <Insets bottom="20" />
+        </VBox.margin>
+    </Label>
+
+    <ComboBox fx:id="profil" promptText="Profil" styleClass="textMedium" />
+    <HBox alignment="CENTER" spacing="10" fx:id="box1">
+        <CheckBox fx:id="minCheck" text="Medie minimă" styleClass="textMedium" />
+        <DoubleField fx:id="min" styleClass="textMedium" promptText="folosește . drept virgulă" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="10" fx:id="box2">
+        <CheckBox fx:id="maxCheck" text="Medie Maximă" styleClass="textMedium" />
+        <DoubleField fx:id="max" styleClass="textMedium" promptText="folosește . drept virgulă"/>
+    </HBox>
+    <Button fx:id="close" text="Salvează">
+        <VBox.margin>
+            <Insets top="25" />
+        </VBox.margin>
+    </Button>
+
+</VBox>
