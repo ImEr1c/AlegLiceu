@@ -3,15 +3,25 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     java
     application
-    id("org.javamodularity.moduleplugin") version "1.8.12"
-    id("org.openjfx.javafxplugin") version "0.0.13"
-    id("org.beryx.jlink") version "2.25.0"
+    id("org.javamodularity.moduleplugin") version "1.8.15"
+    id("org.openjfx.javafxplugin") version "0.1.0"
+    id("org.beryx.jlink") version "3.1.1"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.graalvm.buildtools.native") version "0.10.6"
 }
 
-group = "com.imer1c.alegliceu"
-version = "1.0-SNAPSHOT"
+val appName: String by project
+val javafx_modules: String by project
+val version: String by project
+val group: String by project
+val appMainClass: String by project
+
+val osName = System.getProperty("os.name")
+val platform: String = when {
+    osName.contains("windows") -> "windows"
+    osName.contains("mac") -> "mac"
+    else -> "linux"
+}
 
 repositories {
     mavenCentral()
@@ -28,13 +38,13 @@ tasks.withType<JavaCompile> {
 }
 
 application {
-    mainModule.set("com.imer1c.alegliceu")
-    mainClass.set("com.imer1c.alegliceu.AlegLiceu")
+    mainModule.set(group)
+    mainClass.set(appMainClass)
 }
 
 javafx {
     version = "21"
-    modules = listOf("javafx.controls", "javafx.fxml", "javafx.swing")
+    modules = javafx_modules.split(",")
 }
 
 dependencies {
@@ -52,19 +62,22 @@ jlink {
     imageZip.set(layout.buildDirectory.file("/distributions/app-${javafx.platform.classifier}.zip"))
     options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
 
-
     launcher {
         name = "app"
     }
 
     jpackage {
-        imageName = "AlegLiceu"
-        installerName = "AlegLiceu"
-        installerType = "dmg"
+        imageName = appName
+        installerName = appName
+        installerType = when {
+            platform.contains("mac") -> "pkg"
+            platform.contains("windows") -> "msi"
+            else -> null
+        }
 
-        appVersion = "1.0.0"
+        appVersion = version
 
-        outputDir = "$buildDir/installer"
+        outputDir = "build/installer"
     }
 }
 
@@ -74,7 +87,7 @@ tasks.shadowJar {
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "com.imer1c.alegliceu.AlegLiceu"
+        attributes["Main-Class"] = appMainClass
     }
 }
 
@@ -82,18 +95,14 @@ graalvmNative {
     toolchainDetection.set(true)
     binaries {
         named("main") {
-            imageName.set("AlegLiceu")
-            mainClass.set("com.imer1c.alegliceu.AlegLiceu")
+            imageName.set(appName)
+            mainClass.set(appMainClass)
             buildArgs.addAll(listOf(
                 "--no-fallback",
                 "--enable-url-protocols=http,https",
                 "-H:+UnlockExperimentalVMOptions",
-                //"-H:IncludeResources=.*\\.dylib|.*\\.so|.*\\.dll|.*\\.ttf|.*\\.css|.*\\.bss",
                 "-H:+ReportUnsupportedElementsAtRuntime",
                 "-H:+AllowVMInspection",
-               // "--add-exports=javafx.graphics/com.sun.glass.ui=ALL-UNNAMED",
-               // "--add-exports=javafx.graphics/com.sun.glass.utils=ALL-UNNAMED",
-               // "--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED",
                 "-H:+ReportExceptionStackTraces",
                 "--module-path", configurations.runtimeClasspath.get().asPath,
                 "--add-modules", "javafx.controls,javafx.fxml,javafx.swing,javafx.graphics"
@@ -106,23 +115,21 @@ graalvmNative {
 val agentLib = tasks.register<Exec>("runAgentLibScript") {
     dependsOn(tasks.shadowJar)
 
-    group = "verification"
-
     val jarFile = tasks.shadowJar.get().archiveFile.get().asFile
 
     commandLine = listOf(
         "java",
-        "-agentlib:native-image-agent=config-merge-dir=graal-config",
+        "-agentlib:native-image-agent=config-merge-dir=graal-config/${platform}",
         "--module-path",
         configurations.runtimeClasspath.get().asPath,
         "--add-modules",
-        "javafx.controls,javafx.fxml,javafx.swing,javafx.graphics",
+        javafx_modules,
         "-jar",
         jarFile.absolutePath
     )
 
     doFirst {
-        delete(file("graal-config"))
+        delete(file("graal-config/${platform}"))
     }
 }
 
@@ -133,13 +140,13 @@ tasks.register<Copy>("agentlib") {
 
     val dest = file("src/main/resources/META-INF/native-image")
 
-    from(file("graal-config"))
+    from(file("graal-config/${platform}"))
     into(dest)
 
     doFirst {
         delete(dest)
 
-        println("Update graal VM config")
+        println("Updated graal VM config")
     }
 }
 
@@ -148,81 +155,25 @@ tasks.register<Copy>("copyGraalConfig") {
 
     val dest = file("src/main/resources/META-INF/native-image")
 
-    from(file("graal-config"))
+    from(file("graal-config/${platform}"))
     into(dest)
 
     doFirst {
         delete(dest)
 
-        println("Update graal VM config")
+        println("Updated graal VM config")
     }
 }
 
-tasks.register<Copy>("copyJFXNatives") {
-    from({
-        configurations.runtimeClasspath.get().filter {
-            it.name.contains("javafx") && it.name.endsWith(".jar") && it.isFile
-        }.map { zipTree(it) }
-    })
+tasks.register("packageForMac") {
+    group = "installers"
 
-    val dest = file("$buildDir/javafx-natives")
+    dependsOn(tasks.jpackage)
+    onlyIf { platform.equals("mac") }
 
-    include("**/*.dylib", "**/*.so", "**/*.dll")
-    into(dest)
+    doLast {
+        val dest = file("build/installer")
 
-    doFirst {
-        delete(dest)
+        println("Installer available at ${dest.toURI()}")
     }
-}
-
-tasks.register<Copy>("packageForMacOS") {
-
-    dependsOn(tasks.nativeCompile)
-
-    val nativeBinary = file("build/native/nativeCompile")
-    val output = file("build/native-app/${project.name}.app")
-    val jfxNatives = file("build/javafx-natives")
-
-    val macOS = file("$output/Contents/MacOS")
-    val res = file("$output/Contents/Resources")
-
-    from (jfxNatives) {
-        include { !it.isDirectory }
-    }
-    from(nativeBinary)
-
-    into(macOS)
-
-    doFirst {
-        delete(output)
-        output.mkdirs()
-
-        macOS.mkdirs()
-        res.mkdirs()
-
-        file("$output/Contents/Info.plist").writeText("""
-        <?xml version="1.0" ?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-         <dict>
-                <key>CFBundleName</key>
-                <string>${project.name}</string>
-                <key>CFBundleDisplayName</key>
-                <string>${project.name}</string>
-                <key>CFBundleExecutable</key>
-                <string>${project.name}</string>
-                <key>CFBundleIdentifier</key>
-                <string>${group}</string>
-                <key>CFBundleVersion</key>
-                <string>1.0</string>
-                <key>CFBundlePackageType</key>
-                <string>APPL</string>
-                <key>CFBundleIconFile</key>
-                <string>icon.icns</string>
-         </dict>
-        </plist>
-
-    """.trimIndent())
-    }
-
 }
