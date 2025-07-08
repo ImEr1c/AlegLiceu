@@ -82,7 +82,7 @@ public class HomeViewController implements Initializable {
 
                 if (!userListManager.hasCandidateInfo())
                 {
-                    appInstance.openDialog(MainController.FXMLData.of("run_simulation_dialog", this, appInstance), 532, 400);
+                    appInstance.openDialog(MainController.FXMLData.of("choose_simulation_data_dialog", this, appInstance), 532, 400);
                 }
                 else
                 {

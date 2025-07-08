@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.imer1c.alegliceu.ui.DoubleField?>
+<VBox xmlns="http://javafx.com/javafx" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml" styleClass="dialog" style="-fx-padding: 20" spacing="30"
+      fx:controller="com.imer1c.alegliceu.controllers.RunSimulationDialogController">
+
+    <Label text="Scrie mai jos o poziție pentru a rula simularea" styleClass="textMedium" />
+    <DoubleField fx:id="field" maxWidth="300" promptText="Poziție" />
+    <Button fx:id="confirm" text="Confirmă" />
+
+</VBox>

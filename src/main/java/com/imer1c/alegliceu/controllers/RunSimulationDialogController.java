@@ -23,8 +23,18 @@ public class RunSimulationDialogController implements ArgInitializer {
                 return;
             }
 
-            appInstance.openDialog(MainController.FXMLData.of("loading"), 532, 400);
-            int estimatedIndex = appInstance.getDataManager().getEstimatedIndex(value);
+            boolean index = field.getPromptText().equals("Poziție");
+            int estimatedIndex;
+
+            if (index)
+            {
+                estimatedIndex = (int) field.getValue();
+            }
+            else
+            {
+                appInstance.openDialog(MainController.FXMLData.of("loading"), 532, 400);
+                estimatedIndex = appInstance.getDataManager().getEstimatedIndex(value);
+            }
 
             appInstance.openDialog(MainController.FXMLData.of("choose_simulation_dialog", controller, estimatedIndex, appInstance), 532, 400);
         });

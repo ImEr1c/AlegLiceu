@@ -16,8 +16,9 @@
 
     <VBox minWidth="170" prefWidth="170" maxWidth="170" alignment="CENTER">
         <HBox alignment="CENTER" spacing="10">
-            <Button fx:id="delete" styleClass="image-button, red, delete-button" />
+            <Button fx:id="info" styleClass="image-button, info-button" />
             <Button fx:id="move" styleClass="image-button, move-button" />
+            <Button fx:id="delete" styleClass="image-button, red, delete-button" />
         </HBox>
         <Label fx:id="cod" style="-fx-font-size: 40" alignment="CENTER_RIGHT" wrapText="true"/>
     </VBox>

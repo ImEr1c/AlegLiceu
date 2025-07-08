@@ -32,8 +32,10 @@ public class HomeLiceuItemController implements ArgInitializer {
     public HBox root;
     public VBox nameProfileGroup;
     public Label index;
+
     public Button delete;
     public Button move;
+    public Button info;
 
     private boolean paste;
 
@@ -97,6 +99,10 @@ public class HomeLiceuItemController implements ArgInitializer {
             {
                 playScale(false, root, l -> controller.setMovingIndex(indexInt));
             }
+        });
+
+        this.info.setOnMouseClicked(e -> {
+            appInstance.openDialog(MainController.FXMLData.of("browser_item_info_dialog", appInstance.getDataManager().getLicee().get(profil.getLiceuId()), appInstance), 800, 600);
         });
 
         this.delete.setOnMouseClicked(e -> {

@@ -254,3 +254,7 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
+
+.info-button {
+    -fx-background-image: url('/info.png');
+}
