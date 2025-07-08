@@ -51,6 +51,8 @@
   }, {
     "pattern":"\\Qfxml/browser_item_info_dialog.fxml\\E"
   }, {
+    "pattern":"\\Qfxml/choose_simulation_data_dialog.fxml\\E"
+  }, {
     "pattern":"\\Qfxml/choose_simulation_dialog.fxml\\E"
   }, {
     "pattern":"\\Qfxml/grades_and_repartition_dialog.fxml\\E"
@@ -77,11 +79,15 @@
   }, {
     "pattern":"\\Qfxml/print_send_to_phone_dialog.fxml\\E"
   }, {
-    "pattern":"\\Qfxml/run_simulation_dialog.fxml\\E"
+    "pattern":"\\Qfxml/run_simulation_index_dialog.fxml\\E"
+  }, {
+    "pattern":"\\Qfxml/run_simulation_medie_dialog.fxml\\E"
   }, {
     "pattern":"\\Qfxml/type_men_code_dialog.fxml\\E"
   }, {
     "pattern":"\\Qicon.png\\E"
+  }, {
+    "pattern":"\\Qinfo.png\\E"
   }, {
     "pattern":"\\Qtrash.png\\E"
   }, {
@@ -94,6 +100,8 @@
     "pattern":"java.base:\\Qjdk/internal/icu/impl/data/icudt72b/uprops.icu\\E"
   }, {
     "pattern":"java.base:\\Qsun/net/idn/uidna.spp\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/text/resources/WordBreakIteratorData\\E"
   }, {
     "pattern":"javafx.base:\\Qcom/sun/javafx/reflect/Trampoline.class\\E"
   }, {
@@ -187,7 +195,11 @@
   }, {
     "pattern":"javafx.graphics:\\Qcom/sun/prism/d3d/hlsl/FillPgram_Color.obj\\E"
   }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/d3d/hlsl/FillPgram_LinearGradient_PAD.obj\\E"
+  }, {
     "pattern":"javafx.graphics:\\Qcom/sun/prism/d3d/hlsl/FillRoundRect_Color.obj\\E"
+  }, {
+    "pattern":"javafx.graphics:\\Qcom/sun/prism/d3d/hlsl/Solid_Color.obj\\E"
   }, {
     "pattern":"javafx.graphics:\\Qcom/sun/prism/d3d/hlsl/Solid_TextureFirstPassLCD.obj\\E"
   }, {
